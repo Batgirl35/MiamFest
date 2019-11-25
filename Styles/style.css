@@ -3,13 +3,18 @@ h1{
 	font-family: 'Satisfy', cursive;
 	
 }
-/*Menu déroulant*/
+/*-----------------------------Menu déroulant-----------------------------*/
 li{
 list-style-type:none;
 float:left;
-width:180px;
+width:350px;
 line-height:40px;
 font-family: 'Exo', sans-serif;
+color:white;
+background-color:#FFBD4A;
+padding-left:20px;
+
+
 }
 ul ul
 {
@@ -19,23 +24,21 @@ li:hover ul
 {
 display:block;
 }
-li{
-	color:white;
-	background-color:#FFBD4A;
-}
+
 li:hover, li ul li{
-	background-color:#FFD58B;
-	color: black;
+	font-weight:bold;	
+}
+li ul li:hover{
 	font-weight:bold;
 }
-li ul li:hover {
-font-weight:bolder;
+li ul li{
+		color:black;
+		background-color:#FFD58B;
+		font-weight:normal;		
 }
-	li {
-padding-left:20px;
-}
+
 li ul{
 padding : 0px;
 margin-left:-20px;
 }
-
+/*----------------------------------------------------------*/
