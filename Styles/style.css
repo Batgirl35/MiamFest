@@ -1,6 +1,41 @@
 h1{
-	background-color:purple;
-	border-radius:100px;
-	
+	color:#ffbd4a;
+	font-family: 'Satisfy', cursive;
 	
 }
+/*Menu déroulant*/
+li{
+list-style-type:none;
+float:left;
+width:180px;
+line-height:40px;
+font-family: 'Exo', sans-serif;
+}
+ul ul
+{
+display:none;
+}
+li:hover ul
+{
+display:block;
+}
+li{
+	color:white;
+	background-color:#FFBD4A;
+}
+li:hover, li ul li{
+	background-color:#FFD58B;
+	color: black;
+	font-weight:bold;
+}
+li ul li:hover {
+font-weight:bolder;
+}
+	li {
+padding-left:20px;
+}
+li ul{
+padding : 0px;
+margin-left:-20px;
+}
+
