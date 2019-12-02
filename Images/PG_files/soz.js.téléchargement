@@ -1,0 +1,99 @@
+if (typeof $ === 'undefined') {
+    $ = jQuery;
+}
+
+var soz = {
+    prefix: "https://prod-soz-michelin-fr.bookatable.com/",
+    tests: [],
+    selectedTests: [],
+    jsToApply: [],
+    cssToAply: [],
+    enabled: true,
+    logEnabled:false,
+    logger: {
+        log:function(message) {
+            if(soz.logEnabled) {
+                console.log(message)
+            };
+        },
+        time:function(message){
+            if(soz.logEnabled) {
+                console.time(message);
+            }
+        },
+        timeEnd:function(message){
+            if(soz.logEnabled) {
+                console.timeEnd(message);
+            }
+        }
+    },
+    applyPrepared: function () {
+        soz.logger.time("applyPrepared");
+        $.each(soz.selectedTests, function () {
+            var test = this;
+            dataLayer.push({ 'soz_test': test.TestId });
+            if(!!test.CssFile) {
+                soz.applyCss(soz.prefix + test.TestId + '/' + test.CssFile);
+            }
+            if(!!test.JavaScript) {
+                soz.applyJs(soz.prefix + test.TestId + '/' + test.JavaScript);
+            }
+        });
+        soz.logger.timeEnd("applyPrepared");
+    },
+    isTestValid: function (test, url) {
+        return test.IsEnabled
+            && (!Array.isArray(test.Rules.IncludeUrls)
+            || test.Rules.IncludeUrls.some(function (includeUrl) { return url.indexOf(includeUrl) >= 0; }))
+            && (!Array.isArray(test.Rules.ExcludeUrls)
+            || !test.Rules.ExcludeUrls.some(function (excludeUrl) { return url.indexOf(excludeUrl) >= 0; }));
+    },
+    applyJs: function (url) {
+        $.getScript(url, function () {
+            soz.logger.log('Applied js: ' + url);
+        });
+    },
+    applyCss: function (url) {
+        $('head').append('<link rel="stylesheet" type="text/css" href="' + url + '">');
+        soz.logger.log('Applied css: ' + url);
+    },
+    isSozEnabled: function(url) {
+        var regex = new RegExp('[\\?&]soz_enabled=([^&#]*)');
+        var results = regex.exec(url);
+        return results === null ? soz.enabled : results[1] === "true";
+    },
+    isLogEnabled: function(url) {
+        var regex = new RegExp('[\\?&]soz_log_enabled=([^&#]*)');
+        var results = regex.exec(url);
+        return results === null ? soz.logEnabled : results[1] === "true";
+    },
+    prepare: function (url) {
+        soz.logEnabled = soz.isLogEnabled(url);
+        soz.enabled = soz.isSozEnabled(url);
+        
+        soz.logger.log("Soz enabled: " + soz.enabled);
+                
+        if(!soz.enabled) {
+            return;
+        }
+
+        soz.logger.time("prepare");
+
+        $.getJSON(this.prefix + 'tests.json', function (data) {
+            soz.logger.time("prepare_proc");
+            soz.tests = data.tests;
+            $.each(soz.tests, function () {
+                if (soz.isTestValid(this, url)) {
+                    soz.selectedTests.push(this);
+                }
+            });
+
+            soz.logger.timeEnd("prepare");
+            soz.logger.timeEnd("prepare_proc");
+            $(document).ready(function () {
+                soz.applyPrepared();
+            });
+        });
+    }
+};
+soz.prepare(window.location.href);
