@@ -1,1 +1,84 @@
-//CSS
+header{
+	background-color:white;
+	grid-area:entete;
+}
+nav{
+	background-color:
+	grid-area:menu;
+}
+section{
+	background-color:white;
+	grid-area:texte;
+}
+footer{
+	background-color:#FFBD4A;
+	grid-area:pied;
+}
+@media(min-width:900px){
+	body{
+display:grid;
+grid-template-columns:15% 85%;
+grid-template-areas:"entete menu"
+					"texte texte"
+					"pied pied";
+grid-template-rows:20% auto 40%;
+
+}}
+@media(max-width:400px){
+	body{
+display:grid;
+grid-template-columns:100%;
+grid-template-areas:"entete"
+					"menu"
+					"texte"
+					"pied";
+grid-template-rows:20% auto auto 40%;
+}}
+
+h1{
+	color:#ffbd4a;
+	font-family: 'Satisfy', cursive;
+	margin-left:50px;
+	margin-top:50px;
+	
+} 
+p{
+	font-family: 'Exo', sans-serif;
+}
+/*-----------------------------Menu déroulant-----------------------------*/
+li{
+list-style-type:none;
+float:left;
+width:300px;
+line-height:40px;
+font-family: 'Exo', sans-serif;
+color:white;
+background-color:#FFBD4A;
+padding-left:20px;
+}
+ul ul
+{
+display:none;
+}
+li:hover ul
+{
+display:block;
+}
+
+li:hover, li ul li{
+	font-weight:bold;	
+}
+li ul li:hover{
+	font-weight:bold;
+}
+li ul li{
+		color:black;
+		background-color:#FFD58B;
+		font-weight:normal;			
+}
+
+li ul{
+padding : 0px;
+margin-left:-20px;
+}
+/*----------------------------------------------------------*/
