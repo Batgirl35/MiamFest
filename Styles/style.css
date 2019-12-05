@@ -59,6 +59,8 @@ p{
 #chef {
 	border-radius:1000px;
 }
+
+}
 /*-----------------------------Tableau intervenants-----------------------------*/
 th,td{
 	border:none;
@@ -70,8 +72,6 @@ list-style-type:none;
 float:left;
 width:230px;
 line-height:40px;
-font-family: 'Exo', sans-serif;
-color:white;
 background-color:#FFBD4A;
 padding-left:20px;
 text-align:center;
@@ -94,7 +94,7 @@ li ul li:hover{
 li ul li{
 		color:black;
 		background-color:#FFD58B;
-		font-weight:normal;	
+		font-weight:normal;
 }
 
 li ul{
@@ -102,3 +102,13 @@ padding : 0px;
 margin-left:-20px;
 }
 
+#menu{
+	font-family:'Exo', sans-serif;
+	color:white;
+	text-decoration:none;
+}
+#sousmenu{	
+	font-family:'Exo', sans-serif;
+	color:black;
+	text-decoration:none;
+}
