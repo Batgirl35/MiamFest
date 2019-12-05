@@ -1,3 +1,4 @@
+/*-----------------------------Organisation de la page-----------------------------*/
 header{
 	background-color:white;
 	grid-area:entete;
@@ -11,9 +12,10 @@ section{
 	grid-area:texte;
 }
 footer{
-	background-color:#FFBD4A;
+	background-color:black;
 	grid-area:pied;
 }
+/*-----------------------------Adaptation écrans-----------------------------*/
 @media(min-width:900px){
 	body{
 display:grid;
@@ -34,27 +36,45 @@ grid-template-areas:"entete"
 					"pied";
 grid-template-rows:20% auto auto 40%;
 }}
-
+/* -----------------------------Style page-----------------------------*/
 h1{
 	color:#ffbd4a;
 	font-family: 'Satisfy', cursive;
+	text-align:center;	
+} 
+h2{
+	color:white;
+	font-family: 'Satisfy', cursive;
 	margin-left:50px;
 	margin-top:50px;
-	
-} 
+}
 p{
 	font-family: 'Exo', sans-serif;
+	text-align:justify;
+	color: black;
+	margin-left:50px;
+	margin-right:50px;
+}
+.video{text-align:center;}
+#chef {
+	border-radius:1000px;
+}
+/*-----------------------------Tableau intervenants-----------------------------*/
+th,td{
+	border:none;
+	text-align:center;
 }
 /*-----------------------------Menu déroulant-----------------------------*/
 li{
 list-style-type:none;
 float:left;
-width:300px;
+width:230px;
 line-height:40px;
 font-family: 'Exo', sans-serif;
 color:white;
 background-color:#FFBD4A;
 padding-left:20px;
+text-align:center;
 }
 ul ul
 {
@@ -66,7 +86,7 @@ display:block;
 }
 
 li:hover, li ul li{
-	font-weight:bold;	
+	font-weight:bold;
 }
 li ul li:hover{
 	font-weight:bold;
@@ -74,11 +94,11 @@ li ul li:hover{
 li ul li{
 		color:black;
 		background-color:#FFD58B;
-		font-weight:normal;			
+		font-weight:normal;	
 }
 
 li ul{
 padding : 0px;
 margin-left:-20px;
 }
-/*----------------------------------------------------------*/
+
