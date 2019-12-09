@@ -1,6 +1,6 @@
 /*-----------------------------Organisation de la page-----------------------------*/
 header{
-	background-color:white;
+	background-color:#ffbd4a;
 	grid-area:entete;
 }
 nav{
@@ -19,11 +19,12 @@ footer{
 @media(min-width:900px){
 	body{
 display:grid;
-grid-template-columns:15% 85%;
-grid-template-areas:"entete menu"
-					"texte texte"
-					"pied pied";
-grid-template-rows:20% auto 40%;
+grid-template-columns:100%;
+grid-template-areas:"entete"
+					"menu"
+					"texte"
+					"pied";
+grid-template-rows:17% 15% auto 40%;
 
 }}
 @media(max-width:400px){
@@ -40,7 +41,7 @@ grid-template-rows:20% auto auto 40%;
 h1{
 	color:#ffbd4a;
 	font-family: 'Satisfy', cursive;
-	text-align:center;	
+	text-align:center;
 } 
 h2{
 	color:white;
@@ -56,6 +57,7 @@ p{
 	margin-right:50px;
 }
 .video{text-align:center;}
+.logo{text-align:center;}
 #chef {
 	border-radius:1000px;
 }
