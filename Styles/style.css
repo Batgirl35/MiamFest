@@ -82,7 +82,11 @@ text-align:center;
 #chef {
 	border-radius:1000px;
 }
-
+a{
+	color:#ffbd4a;
+	text-decoration:underline;
+}
+a:hover{font-style:italic;}
 /*-----------------------------Tableau intervenants-----------------------------*/
 th,td{
 	border:none;
@@ -134,4 +138,31 @@ margin-left:-20px;
 	font-family:'Exo', sans-serif;
 	color:black;
 	text-decoration:none;
+}
+/*-----------------------------Diaporama-----------------------------*/
+#diaporama{
+max-width:450px; 
+height: 225px; 
+overflow: hidden; 
+}
+#diaporama figure img {
+width: 25%; 
+float: left;
+}
+#diaporama figure{
+position: relative;
+width: 400% ;
+animation: 10s sliderleft infinite;
+margin-left:0;
+}
+@keyframes sliderleft {
+0% {left: 0%;}
+20% {left: 0%;}
+25% {left: -100%;}
+45% {left:-100%;}
+50% {left:-200%;}
+70% {left:-200%;}
+75% {left:-300%;}
+95% {left:-300%;}
+100% {left:0%;}
 }
