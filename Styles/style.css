@@ -76,6 +76,9 @@ p{
 }
 .logo{text-align:center;}
 .chef{text-align:center;}
+.event{border:1px black;
+text-align:center;
+}
 #chef {
 	border-radius:1000px;
 }
