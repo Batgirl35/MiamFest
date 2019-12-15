@@ -1,11 +1,21 @@
 /*-----------------------------Organisation de la page-----------------------------*/
+
 header{
+	margin-top: 0;
+	width: 100%;
+	position: fixed;
+	z-index: 2;
 	background-color:#ffbd4a;
-	grid-area:entete;
+	grid-area: entete;
 }
 
 nav{
-	background-color: white;
+	background-color:#ffbd4a;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	width: 100%;
+	margin-top: 200px;
 	
 }
 
@@ -20,13 +30,15 @@ footer{
 /*-----------------------------Adaptation écrans-----------------------------*/
 @media(min-width:900px){
 	body{
-display:grid;
-grid-template-columns:100%;
-grid-template-areas:"entete"
+			margin: 0 !important; /* Retrait de la marge de gauche et du haut */
+			padding: 0 !important; /* Le !important permet de spécifier la priorité au css*/
+			display:grid;
+			grid-template-columns:100%;
+			grid-template-areas:"entete"
 					"menu"
 					"texte"
 					"pied";
-grid-template-rows:17% 15% auto 40%;
+			grid-template-rows:17% 15% auto 40%;
 
 }}
 @media(max-width:400px){
@@ -41,6 +53,7 @@ grid-template-rows:20% auto auto 40%;
 }}
 /* -----------------------------Style page-----------------------------*/
 h1{
+	margin-top: 0;
 	color:#ffbd4a;
 	font-family: 'Satisfy', cursive;
 	text-align:center;
@@ -58,7 +71,9 @@ p{
 	margin-left:50px;
 	margin-right:50px;
 }
-.video{text-align:center;}
+.video{
+	text-align:center;	
+}
 .logo{text-align:center;}
 .chef{text-align:center;}
 #chef {
