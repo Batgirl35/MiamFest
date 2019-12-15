@@ -82,7 +82,11 @@ text-align:center;
 #chef {
 	border-radius:1000px;
 }
-
+a{
+	color:#ffbd4a;
+	text-decoration:underline;
+}
+a:hover{font-style:italic;}
 /*-----------------------------Tableau intervenants-----------------------------*/
 th,td{
 	border:none;
@@ -137,17 +141,17 @@ margin-left:-20px;
 }
 /*-----------------------------Diaporama-----------------------------*/
 #diaporama{
-max-width:450px; /*La largeur des images*/
-height: 225px; /*La hauteur des images*/
-overflow: hidden; /*Ce qui déborde est masqué*/
+max-width:450px; 
+height: 225px; 
+overflow: hidden; 
 }
 #diaporama figure img {
-width: 25%; /* = 100/nb d'images */
+width: 25%; 
 float: left;
 }
 #diaporama figure{
 position: relative;
-width: 400% ; /*=100 x nombre d'images*/
+width: 400% ;
 animation: 10s sliderleft infinite;
 margin-left:0;
 }
